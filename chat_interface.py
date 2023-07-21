@@ -2,6 +2,8 @@ import os
 import chainlit as cl
 from vertexai.preview.language_models import TextGenerationModel
 
+#chainlit run chat_interface.py -w
+
 #os.environ['GOOGLE_APPLICATION_CREDENTIALS'] ='$HOME/.config/gcloud/application_default_credentials.json'
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] ='application_default_credentials.json'
 os.environ['GOOGLE_CLOUD_PROJECT'] ='starlit-factor-393301'
@@ -42,10 +44,8 @@ async def main(user_message: str):
 #Version con contexto:
 '''
 @cl.on_message
-async def main(message: str):
-    
-    user_question=message
-
+async def main(user_question: str):
+        
     context =retriever(user_question)
 
     prompt = f"""Answer the question given in the contex below:
