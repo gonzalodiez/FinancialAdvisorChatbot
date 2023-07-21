@@ -97,7 +97,6 @@ class chroma():
             where=metadata,             # {"metadata_field": "is_equal_to_this"}
             where_document=context,     # {"$contains":"search_string"}
             include=["embeddings", "metadatas", "documents", "distances"]         # "documents"
-            
             )
         
 

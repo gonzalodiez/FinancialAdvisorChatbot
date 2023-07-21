@@ -57,7 +57,6 @@ async def main(user_message: str):
 
 #Version con contexto:
 @cl.on_message
-<<<<<<< HEAD
 async def main(message: str):
     
     n=3
@@ -68,11 +67,6 @@ async def main(message: str):
     #docs['metadatas']
     context=docs['documents'][0]
     #docs['distances']
-=======
-async def main(user_question: str):
-        
-    context =retriever(user_question)
->>>>>>> refs/remotes/origin/main
 
     prompt = f"""Answer the question given in the contex below:
     Context: {context}\n 
