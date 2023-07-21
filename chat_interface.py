@@ -6,6 +6,8 @@ from chromadb.utils import embedding_functions
 
 # chainlit run chat_interface.py -w
 
+#chainlit run chat_interface.py -w
+
 #os.environ['GOOGLE_APPLICATION_CREDENTIALS'] ='$HOME/.config/gcloud/application_default_credentials.json'
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] ='application_default_credentials.json'
 os.environ['GOOGLE_CLOUD_PROJECT'] ='starlit-factor-393301'
@@ -55,6 +57,7 @@ async def main(user_message: str):
 
 #Version con contexto:
 @cl.on_message
+<<<<<<< HEAD
 async def main(message: str):
     
     n=3
@@ -65,6 +68,11 @@ async def main(message: str):
     #docs['metadatas']
     context=docs['documents'][0]
     #docs['distances']
+=======
+async def main(user_question: str):
+        
+    context =retriever(user_question)
+>>>>>>> refs/remotes/origin/main
 
     prompt = f"""Answer the question given in the contex below:
     Context: {context}\n 
