@@ -50,17 +50,17 @@ class chroma():
         data = pd.read_csv(csv, nrows=rows)
         
         # Rename the first column without a name to 'ids'
-        data = data.rename(columns={data.columns[0]: 'ids'})
-        ids=data['ids'].astype(str).tolist()
-
-        # Combine 'name', 'exchange', 'symbol', 'year', '_split_id', and '_split_overlap' columns into a 'meta' dictionary
-        meta_data = data[['name', 'exchange', 'symbol', 'year','_split_id', '_split_overlap']].to_dict(orient='records')
-        meta_data = [dict(row) for row in meta_data]
+        data = data.reset_index()
+        ids=data.index.astype(str).tolist()
 
         # Extract the 'documents' column
         documents = data['document'].tolist()
 
+        # Combine 'name', 'exchange', 'symbol', 'year', '_split_id', and '_split_overlap' columns into a 'meta' dictionary
+        meta_data = data.drop(columns=['document','index'], axis=1).to_dict(orient='records')
+        meta_data = [dict(row) for row in meta_data]
 
+        
         # Add the data to the Chroma collection
         self.collection.add(
             documents=documents,
@@ -96,7 +96,7 @@ class chroma():
             n_results=n_results,        # 10
             where=metadata,             # {"metadata_field": "is_equal_to_this"}
             where_document=context,     # {"$contains":"search_string"}
-            include=["embeddings", "metadatas", "documents", "distances"]         # "documents"
+            include=["embeddings", "metadatas", "documents", "distances"]         # what to include
             )
         
 

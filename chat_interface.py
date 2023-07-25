@@ -4,9 +4,7 @@ from vertexai.preview.language_models import TextGenerationModel
 from utils.chroma import chroma
 from chromadb.utils import embedding_functions
 
-# chainlit run chat_interface.py -w
-
-#chainlit run chat_interface.py -w
+# Code to run chainlit: chainlit run chat_interface.py -w
 
 #os.environ['GOOGLE_APPLICATION_CREDENTIALS'] ='$HOME/.config/gcloud/application_default_credentials.json'
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] ='application_default_credentials.json'
@@ -24,15 +22,14 @@ The rapid development of science and technology inspired a new wave of writers a
 """
 '''
 
+# Levanto el llm
 generation_model = TextGenerationModel.from_pretrained("text-bison@001")
 
-# Ejemplo de uso 
-
-path='/home/gonza/gonza/Financial_Chatbot_Advisor/chroma_new'
+# Levanto Chroma
+path='/home/gonza/gonza/Financial_Chatbot_Advisor/git/FinancialAdvisorChatbot/langchain/chroma'
 chroma = chroma(path=path)
-
 sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="multi-qa-MiniLM-L6-cos-v1")
-chroma.collection(collection='multi-qa-MiniLM-L6-cos-v1',embedding_function=sentence_transformer_ef)
+chroma.collection(collection='chroma',embedding_function=sentence_transformer_ef)
 
 #Version sin contexto
 '''
@@ -68,14 +65,14 @@ async def main(message: str):
     context=docs['documents'][0]
     #docs['distances']
 
-    prompt = f"""Answer the question given in the contex below:
+    prompt = f"""Answer the question given in the context below and explain why:
     Context: {context}\n 
     Question: {user_question} \n
     Answer:
     """
 
     answer=generation_model.predict(
-        prompt,
+        prompt, temperature=0.99
     ).text
 
     # Send a response back to the user
