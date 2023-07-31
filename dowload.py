@@ -11,14 +11,15 @@ s3_client = boto3.client(
     aws_secret_access_key='yqLq4NVH7T/yBMaGKinv57fGgQStu8Oo31yVl1bB'
 )
 
+# Create the paginator for the list_objects_v2 API
+paginator = s3_client.get_paginator('list_objects_v2')
+
 # Specify the bucket name and prefix (directory path)
 bucket_name = 'anyoneai-datasets'
 prefix = 'nasdaq_annual_reports/'
 
-
-# List objects within the bucket
-response = s3_client.list_objects_v2(Bucket=bucket_name, Prefix=prefix)
-
+# List objects within the bucket using the paginator
+response_iterator = paginator.paginate(Bucket=bucket_name, Prefix=prefix)
 
 # Specify the local directory path to save the files
 local_directory = 'dataset'
@@ -27,16 +28,18 @@ local_directory = 'dataset'
 os.makedirs(local_directory, exist_ok=True)
 
 # Download each file to the local directory
-for obj in response['Contents']:
-    key = obj['Key']
-    
-    # Skip directories
-    if key.endswith('/'):
-        continue
-    
-    local_file_path = os.path.join(local_directory, os.path.basename(key))
-
-    # Download the file from S3 to the local path
-    s3_client.download_file(bucket_name, key, local_file_path)
-
-    print(f'Downloaded: {key} -> {local_file_path}')
+for response in response_iterator:
+    if 'Contents' in response:
+        for obj in response['Contents']:
+            key = obj['Key']
+            
+            # Skip directories
+            if key.endswith('/'):
+                continue
+            
+            local_file_path = os.path.join(local_directory, os.path.basename(key))
+            
+            # Download the file from S3 to the local path
+            s3_client.download_file(bucket_name, key, local_file_path)
+            
+            print(f'Downloaded: {key} -> {local_file_path}')
