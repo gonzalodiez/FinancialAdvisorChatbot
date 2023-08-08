@@ -1,3 +1,7 @@
+from dotenv import load_dotenv
+# Load environment variables from the .env file
+load_dotenv()
+
 # Import the required function for downloading from S3
 from download import download_from_s3
 # Download files from the specified S3 bucket
