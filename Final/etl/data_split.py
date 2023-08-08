@@ -185,8 +185,8 @@ def process_and_save_dataset(pdf_folder_path, file_name='data.csv'):
 
 # Example usage:
 if __name__ == "__main__":
-    pdf_folder_path = Local_directory
-    df = process_and_save_dataset(pdf_folder_path, file_name='dataset_mil.csv')
+    pdf_folder_path = os.environ['LOCAL_DIRECTORY']
+    df = process_and_save_dataset(pdf_folder_path, file_name=os.environ['DATASET_NAME'])
     if df is not None:
         print(df)
 
