@@ -1,5 +1,8 @@
 import boto3
 import os
+from dotenv import load_dotenv
+# Load environment variables from the .env file
+load_dotenv()
 
 def download_from_s3():
     # Read AWS credentials from environment variables
@@ -50,6 +53,6 @@ def download_from_s3():
                 
                 print(f'Downloaded: {key} -> {local_file_path}')
 
-# This allows the module to be run as a standalone script as well
+"""# This allows the module to be run as a standalone script as well
 if __name__ == '__main__':
-    download_from_s3()
+    download_from_s3()"""
