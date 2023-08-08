@@ -3,6 +3,9 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
 from langchain.embeddings import HuggingFaceEmbeddings, SentenceTransformerEmbeddings
 import pandas as pd
+from dotenv import load_dotenv
+# Load environment variables from the .env file
+load_dotenv()
 
 def process_documents():
     df = pd.read_csv(os.environ['DATASET_NAME'])
@@ -32,6 +35,6 @@ def process_documents():
         embedding=embeddings
     )
 
-# This allows the module to be run as a standalone script as well
+"""# This allows the module to be run as a standalone script as well
 if __name__ == '__main__':
-    process_documents()
+    process_documents()"""
