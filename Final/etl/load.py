@@ -4,11 +4,13 @@ from langchain.vectorstores import Chroma
 from langchain.embeddings import HuggingFaceEmbeddings, SentenceTransformerEmbeddings
 import pandas as pd
 from dotenv import load_dotenv
+import os
 # Load environment variables from the .env file
 load_dotenv()
 
 def process_documents():
-    df = pd.read_csv(os.environ['DATASET_NAME'])
+    file_path = os.path.join(os.environ['LOCAL_DIRECTORY'], os.environ['DATASET_NAME'])
+    df = pd.read_csv(file_path)
 
     r_splitter = RecursiveCharacterTextSplitter(
         chunk_size=2000,
