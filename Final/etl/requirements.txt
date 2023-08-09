@@ -1,0 +1,9 @@
+haystack
+numpy
+pandas
+boto3
+python-dotenv
+langchain
+nltk
+spacy
+beautifulsoup4
