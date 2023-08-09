@@ -5,6 +5,9 @@ import os
 import text_normalizer
 import config
 import unicodedata
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Add the is_pua function here
 def is_pua(c):
@@ -153,8 +156,8 @@ def process_and_save_dataset(pdf_folder_path, file_name='data.csv'):
         pdf_folder_processor = Dataset(pdf_folder_path)
         processed_df = pdf_folder_processor.load_and_process_folder()
 
-        # Read the "nasdaq_screener_1689942465749.csv" file
-        nasdaq_df = pd.read_csv("aditional_information.csv")
+        # Read the "aditional_information.csv" file
+        nasdaq_df = pd.read_csv('aditional_information.csv')
 
         # Merge the datasets on the common column "symbol"
         merged_df = processed_df.merge(nasdaq_df[['symbol', 'Name', 'Market Cap', 'Sector', 'Industry', 'Country']],
@@ -183,11 +186,9 @@ def process_and_save_dataset(pdf_folder_path, file_name='data.csv'):
             print(f"Error processing and saving dataset: {e}")
     return None
 
-"""# Example usage:
-if __name__ == "__main__":
-    pdf_folder_path = os.environ['LOCAL_DIRECTORY']
-    df = process_and_save_dataset(pdf_folder_path, file_name=os.environ['DATASET_NAME'])
-    if df is not None:
-        print(df)"""
-
-
+# Example usage:
+#if __name__ == "__main__":
+#    pdf_folder_path = Local_directory
+#    df = process_and_save_dataset(pdf_folder_path, file_name='dataset_mil.csv')
+#    if df is not None:
+#        print(df)
