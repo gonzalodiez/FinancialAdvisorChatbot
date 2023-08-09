@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 import os
 import text_normalizer
-import config
 import unicodedata
 from dotenv import load_dotenv
 
