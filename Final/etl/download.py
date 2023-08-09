@@ -1,15 +1,25 @@
 import boto3
 import os
 from dotenv import load_dotenv
+
 # Load environment variables from the .env file
 load_dotenv()
 
-def download_from_s3():
+def download_from_s3(n_documents=1000):
+    """ Downloads a specified number of documents from an S3 bucket.
+
+    This function uses the AWS SDK (boto3) to connect to an S3 bucket and download files
+    to a local directory. The number of documents to download can be specified.
+
+    Args:
+        n_documents (int, optional): The number of documents to download. Defaults to 1000.
+    """
+
     # Read AWS credentials from environment variables
     aws_access_key_id = os.environ['AWS_ACCESS_KEY_ID']
     aws_secret_access_key = os.environ['AWS_SECRET_ACCESS_KEY']
 
-    # Create an S3 client
+    # Create an S3 client using the AWS credentials
     s3_client = boto3.client(
         's3',
         aws_access_key_id=aws_access_key_id,
@@ -30,7 +40,7 @@ def download_from_s3():
         PaginationConfig={'MaxItems': 1000}
     )
 
-    # Read local directory path from environment variable
+    # Read the local directory path from the environment variable
     local_directory = os.environ['LOCAL_DIRECTORY']
 
     # Create the local directory if it doesn't exist
@@ -53,6 +63,6 @@ def download_from_s3():
                 
                 print(f'Downloaded: {key} -> {local_file_path}')
 
-"""# This allows the module to be run as a standalone script as well
+"""# This allows the module to be run as a standalone script as well. Usage example:
 if __name__ == '__main__':
     download_from_s3()"""
