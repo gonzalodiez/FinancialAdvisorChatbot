@@ -1,9 +1,9 @@
-haystack
+farm-haystack[preprocessing,file-conversion,pdf]
 numpy
 pandas
 boto3
 python-dotenv
-langchain
 nltk
 spacy
 beautifulsoup4
+langchain==0.0.250
