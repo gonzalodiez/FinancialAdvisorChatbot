@@ -1,0 +1,10 @@
+version: "3.2"
+services:
+  app:
+    image: app_chainlit
+    container_name: ml_app
+    build:
+      context: ./app
+      target: build
+    ports:
+      - 8000:8000
