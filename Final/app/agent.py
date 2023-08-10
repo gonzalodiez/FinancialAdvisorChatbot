@@ -36,7 +36,7 @@ def setup_llm():
 
 
 def setup_agent_template():
-     """ Defines and returns the template for the financial ChatBot.
+    """ Defines and returns the template for the financial ChatBot.
 
     The template defines the rules, structure, and guidance for the ChatBot named 'Money.'
     It includes instructions for handling various types of questions, formatting responses,
