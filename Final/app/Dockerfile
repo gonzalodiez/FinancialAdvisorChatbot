@@ -4,7 +4,9 @@ COPY ./ /src
 
 WORKDIR /src
 
-RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip 
+RUN pip install torch --index-url https://download.pytorch.org/whl/cpu
+RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install pysqlite3-binary
 
 FROM base as build
