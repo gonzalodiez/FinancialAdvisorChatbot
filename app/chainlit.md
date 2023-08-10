@@ -1,4 +1,4 @@
-# Welcome! 🚀🤖 ![logo AnyoneAi](LogoAnyoneAI.png "AnyoneAI")
+# Welcome! 🚀🤖
 
 ## Hello there! 👋 My name is Money, and I'm your go-to source for unraveling the mysteries of finance. Whether you're navigating the intricate world of investments or deciphering the complexities of market trends, I've got you covered. Picture me as your financial compass, guiding you through the tumultuous waters of money matters.
 
