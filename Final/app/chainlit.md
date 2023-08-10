@@ -8,7 +8,7 @@ Please remember that I am an AI that only provides general and educational infor
 
 # Team 5:
 
-# Kortzars Micaela
+# Kortsarz Micaela
 
 # Diez Gonzalo
 
