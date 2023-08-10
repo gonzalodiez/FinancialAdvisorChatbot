@@ -37,7 +37,7 @@ def download_from_s3(n_documents=1000):
     response_iterator = paginator.paginate(
         Bucket=bucket_name,
         Prefix=prefix,
-        PaginationConfig={'MaxItems': 1000}
+        PaginationConfig={'MaxItems': n_documents}
     )
 
     # Read the local directory path from the environment variable
