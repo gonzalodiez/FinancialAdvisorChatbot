@@ -1,14 +1,17 @@
-# Welcome to Chainlit! 🚀🤖
+# Welcome! 🚀🤖 ![logo AnyoneAi](LogoAnyoneAI.png "AnyoneAI")
 
-Hi there, Developer! 👋 We're excited to have you on board. Chainlit is a powerful tool designed to help you prototype, debug and share applications built on top of LLMs.
+## Hello there! 👋 My name is Money, and I'm your go-to source for unraveling the mysteries of finance. Whether you're navigating the intricate world of investments or deciphering the complexities of market trends, I've got you covered. Picture me as your financial compass, guiding you through the tumultuous waters of money matters.
 
-## Useful Links 🔗
+## If you've ever wondered about stock prices, company performance, or the heartbeat of the market itself, rest assured that my responses are rooted in the wealth of knowledge that NASDAQ offers.
 
-- **Documentation:** Get started with our comprehensive [Chainlit Documentation](https://docs.chainlit.io) 📚
-- **Discord Community:** Join our friendly [Chainlit Discord](https://discord.gg/ZThrUxbAYw) to ask questions, share your projects, and connect with other developers! 💬
+Please remember that I am an AI that only provides general and educational information about financial matters. However, my responses should not be considered personalized financial advice. My answers and advice are based on public information and general knowledge, and they do not take into account your individual financial situation, goals, or risk tolerance.
 
-We can't wait to see what you create with Chainlit! Happy coding! 💻😊
+# Team 5:
 
-## Welcome screen
+# Kortzars Micaela
 
-To modify the welcome screen, edit the `chainlit.md` file at the root of your project. If you do not want a welcome screen, just leave this file empty.
+# Diez Gonzalo
+
+# Apud Gabriela
+
+# Carrizo Leandro
