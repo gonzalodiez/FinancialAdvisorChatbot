@@ -13,6 +13,10 @@ from langchain.tools import DuckDuckGoSearchRun
 from langchain.agents import AgentExecutor,LLMSingleActionAgent
 from langchain import LLMChain
 from langchain.memory import ConversationSummaryMemory
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 def setup_llm():
     """ Sets up and returns an instance of the AzureChatOpenAI language model.
@@ -33,7 +37,6 @@ def setup_llm():
         temperature=0 
         )
     return llm
-
 
 def setup_agent_template():
     """ Defines and returns the template for the financial ChatBot.
@@ -171,7 +174,7 @@ class CustomOutputParser(AgentOutputParser):
 def connect_to_db():
     """ Connects to the database and returns the connection object."""
     embeddings = HuggingFaceEmbeddings(model_name="multi-qa-MiniLM-L6-cos-v1")
-    db=Chroma(persist_directory="chroma_full", embedding_function=embeddings, collection_name='dataset_by_chunk')
+    db=Chroma(persist_directory=os.environ['PERSIST_DIRECTORY'], embedding_function=embeddings, collection_name=os.environ['COLLECTION'])
     return db
 
 def format_doc(docs: list):
