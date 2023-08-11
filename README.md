@@ -49,6 +49,9 @@ A detailed EDA was performed to understand the dataset's structure and intricaci
 ## System Architecture
 We have created a basic microservice architecture with one service containerized with docker and one folder with the extraction, transform and load of the documents (Figure 1):
 
+Figure 1. System architecture. 
+![System_architecture](architecture.png)
+
 ## Prerequisites
 - Python 3.8+
 - Docker & Docker Compose
