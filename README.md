@@ -96,11 +96,11 @@ We have created a basic microservice architecture with one service containerized
 
 ### ETL Integration and Chroma Database Generation
 
-    The etl.ipynb notebook serves as the central hub for integrating the functionalities of the ETL (Extract, Transform, Load) module. It encapsulates the diverse features of the ETL process, ensuring seamless data preparation for the Financial Advisor Chatbot application.
+The etl.ipynb notebook serves as the central hub for integrating the functionalities of the ETL (Extract, Transform, Load) module. It encapsulates the diverse features of the ETL process, ensuring seamless data preparation for the Financial Advisor Chatbot application.
 
-    The most significant contribution of etl.ipynb is its role in generating the Chroma database used by the chatbot app. The Chroma database is a foundational component that enables efficient document retrieval and text-based interactions. It contains the preprocessed and structured textual content of financial documents, making it a critical asset for the chatbot's real-time responses.
+The most significant contribution of etl.ipynb is its role in generating the Chroma database used by the chatbot app. The Chroma database is a foundational component that enables efficient document retrieval and text-based interactions. It contains the preprocessed and structured textual content of financial documents, making it a critical asset for the chatbot's real-time responses.
 
-    For the purpose of expediting demonstration and development, we have initially configured etl.ipynb to work with a subset of 3 documents. However, please note that the functionality extends to working with a larger number of documents. By adjusting the n_documents variable within the notebook, users can tailor the scope of the Chroma database according to their requirements.
+For the purpose of expediting demonstration and development, we have initially configured etl.ipynb to work with a subset of 3 documents. However, please note that the functionality extends to working with a larger number of documents. By adjusting the n_documents variable within the notebook, users can tailor the scope of the Chroma database according to their requirements.
 
 ## Usage & Interactions
 - Access the chatbot via the web interface (the default port defined in Docker is 8000).
