@@ -1,6 +1,5 @@
 # Financial Advisor Chatbot
 
-Final project of the ML engineering fellowship at Anyone AI.
 ### Team members:
 + [Micaela Kortsarz](https://www.linkedin.com/in/micaelakortsarz)
 + [Gonzalo Diez](https://www.linkedin.com/in/gonzalo-damian-diez)
